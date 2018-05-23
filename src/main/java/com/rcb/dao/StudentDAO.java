@@ -9,7 +9,7 @@ public interface StudentDAO {
 
 	public abstract List<Student> listAllStudent();
 
-	public abstract boolean deleteStudenr(Student student);
+	public abstract boolean deleteStudent(Student student);
 
 	public abstract boolean updateStudent(Student student);
 

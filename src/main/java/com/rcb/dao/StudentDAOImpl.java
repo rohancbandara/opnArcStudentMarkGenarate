@@ -1,5 +1,7 @@
 package com.rcb.dao;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.Statement;
@@ -26,13 +28,44 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 	@Override
 	public List<Student> listAllStudent() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Student> listStudent=new ArrayList<>();
+		try {
+			Student stu=new Student();
+			String  sql="SELET * FROM tblStudent";
+			ResultSet rs=getData(sql);
+			while(rs.next()) {
+				
+				stu.setStuId(rs.getInt("stuId"));
+				stu.setStuName(rs.getString("stuName"));
+				stu.setAdNo(rs.getString("adNo"));
+				stu.setAdStree1(rs.getString("adStreet1"));
+				stu.setAdStree2(rs.getString("adStreet2"));
+				stu.setAdCity(rs.getString("adCity"));
+				stu.setClID(rs.getInt("clId"));
+				
+				listStudent.add(stu);
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return listStudent;
 	}
 
 	@Override
-	public boolean deleteStudenr(Student student) {
+	public boolean deleteStudent(Student student) {
 		// TODO Auto-generated method stub
+		try {
+			String sql = "DELETE FROM tblStudent WHERE stuId='" + student.getStuId() + "'";
+			putData(sql);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return false;
+
 	}
 
 	@Override
@@ -41,7 +74,7 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 		try {
 			String sql = "UPDATE tblStudent set stuName='" + student.getStuName() + "',adNo='" + student.getAdNo()
 					+ "',adStreet1='" + student.getAdStree1() + "',adStreet2='" + student.getAdStree2() + "',adCity='"
-					+ student.getAdCity() + "','" + student.getClID() + "' WHERE stuId='" + student.getStuId() + "'";
+					+ student.getAdCity() + "',clId='" + student.getClID() + "' WHERE stuId='" + student.getStuId() + "'";
 			putData(sql);
 			return true;
 		} catch (Exception e) {

@@ -9,7 +9,7 @@ public interface StudentService {
 
 	public List<Student> listAllStudent();
 
-	public boolean deleteStudenr(Student student);
+	public boolean deleteStudent(Student student);
 
 	public boolean updateStudent(Student student);
 

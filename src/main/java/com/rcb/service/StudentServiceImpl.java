@@ -1,12 +1,12 @@
 package com.rcb.service;
 
 import java.util.List;
-
 import com.rcb.dao.StudentDAO;
 import com.rcb.dao.StudentDAOImpl;
 import com.rcb.model.Student;
 
 public class StudentServiceImpl implements StudentService{
+	
 private StudentDAO studentDAO=new StudentDAOImpl();
 Student student=new Student();
 	@Override
@@ -20,12 +20,14 @@ Student student=new Student();
 	@Override
 	public List<Student> listAllStudent() {
 		// TODO Auto-generated method stub
+		studentDAO.listAllStudent();
 		return null;
 	}
 
 	@Override
-	public boolean deleteStudenr(Student student) {
+	public boolean deleteStudent(Student student) {
 		// TODO Auto-generated method stub
+		studentDAO.deleteStudent(createStudent(student));
 		return false;
 	}
 
@@ -33,6 +35,7 @@ Student student=new Student();
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
 		studentDAO.updateStudent(createStudent(student)); 
+		System.out.println("updated!!!!!!");
 		return false;
 	}
 
