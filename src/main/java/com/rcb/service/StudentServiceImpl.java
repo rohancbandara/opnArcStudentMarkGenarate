@@ -16,15 +16,7 @@ Student student=new Student();
 		return false;
 	}
 	
-	private Student createStudent(Student stu) {
-		
-		student.setStuName(stu.getStuName());
-		student.setClID(stu.getClID());
-		return student;
-	}
 	
-	
-
 	@Override
 	public List<Student> listAllStudent() {
 		// TODO Auto-generated method stub
@@ -40,6 +32,7 @@ Student student=new Student();
 	@Override
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
+		studentDAO.updateStudent(createStudent(student)); 
 		return false;
 	}
 
@@ -47,6 +40,17 @@ Student student=new Student();
 	public Student getStudent(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private Student createStudent(Student stu) {
+		student.setStuId(stu.getStuId());
+		student.setStuName(stu.getStuName());
+		student.setAdNo(stu.getAdNo());
+		student.setAdStree1(stu.getAdStree1());
+		student.setAdStree2(stu.getAdStree2());
+		student.setAdCity(stu.getAdCity());
+		student.setClID(stu.getClID());
+		return student;
 	}
 
 }

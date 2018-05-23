@@ -30,6 +30,8 @@ public class StudentController extends HttpServlet {
 			case "/insert":
 				insertStudent(request, response);
 				break;
+			case "/update":
+				updateStudent(request,response);
 			default:
 				System.out.println("home");
 			
@@ -37,6 +39,14 @@ public class StudentController extends HttpServlet {
 		} catch (Exception ex) {
 			throw new ServletException(ex);
 		}
+	}
+
+	private void updateStudent(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		StudentService stuService=new StudentServiceImpl();
+		Student st=new Student();
+		st.setStuId(1);
+		stuService.updateStudent(st);
 	}
 
 	private void insertStudent(HttpServletRequest request, HttpServletResponse response) {

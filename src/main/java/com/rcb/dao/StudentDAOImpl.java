@@ -12,8 +12,10 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 	public boolean insertStudent(Student student) {
 		// TODO Auto-generated method stub
 		try {
-			putData("INSERT INTO tblStudent(stuName,adNo,adStreet1,adStreet2,adCity,clId) VALUES ('"+student.getStuName()+"','"+student.getAdNo()+"','"+student.getAdStree1()+"','"+student.getAdStree2()+"','"+student.getAdCity()+"','"+student.getClID()+"')");
-			
+			putData("INSERT INTO tblStudent(stuName,adNo,adStreet1,adStreet2,adCity,clId) VALUES ('"
+					+ student.getStuName() + "','" + student.getAdNo() + "','" + student.getAdStree1() + "','"
+					+ student.getAdStree2() + "','" + student.getAdCity() + "','" + student.getClID() + "')");
+			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,6 +38,16 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 	@Override
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
+		try {
+			String sql = "UPDATE tblStudent set stuName='" + student.getStuName() + "',adNo='" + student.getAdNo()
+					+ "',adStreet1='" + student.getAdStree1() + "',adStreet2='" + student.getAdStree2() + "',adCity='"
+					+ student.getAdCity() + "','" + student.getClID() + "' WHERE stuId='" + student.getStuId() + "'";
+			putData(sql);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return false;
 	}
 
