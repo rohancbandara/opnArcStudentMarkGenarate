@@ -96,7 +96,29 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 
 	@Override
 	public Student getStudent(int id) {
-		// TODO Auto-generated method stub
+//		// TODO Auto-generated method stub
+//		
+//		try {
+//			String sql="SELECT * FROM tblStudent WHERE stuId='" + id + "'";
+//			ResultSet rs=getData(sql);
+//			while(rs.next()) {
+//				Student stu=new Student();
+//				stu.setStuId(rs.getInt("stuId"));
+//				stu.setStuName(rs.getString("stuName"));
+//				stu.setAdNo(rs.getString("adNo"));
+//				stu.setAdStree1(rs.getString("adStreet1"));
+//				stu.setAdStree2(rs.getString("adStreet2"));
+//				stu.setAdCity(rs.getString("adCity"));
+//				stu.setClID(rs.getInt("clId"));
+//				
+//				return stu;
+//				
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		
 		return null;
 	}
 

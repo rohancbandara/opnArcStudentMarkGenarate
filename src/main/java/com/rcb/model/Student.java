@@ -9,6 +9,16 @@ public class Student {
 	private String adStree2;
 	private String adCity;
 	private int clID;
+	private String stuGender;
+	
+
+	public String getStuGender() {
+		return stuGender;
+	}
+
+	public void setStuGender(String stuGender) {
+		this.stuGender = stuGender;
+	}
 
 	public String getStuName() {
 		return stuName;

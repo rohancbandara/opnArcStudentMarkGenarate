@@ -19,25 +19,41 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String action = request.getServletPath();
 		System.out.println(action);
 		try {
 			switch (action) {
+			// Student Control
 			case "/allStudents":
-				allStudents(request,response);
+				allStudents(request, response);
 			case "/insertStudent":
 				insertStudent(request, response);
 				break;
 			case "/updateStudent":
 				updateStudent(request, response);
 			case "/deleteStudent":
-				deleteStudent(request,response);
+				deleteStudent(request, response);
 			case "/selectStudent":
-				selectStudent(request,response);
+				selectStudent(request, response);
+
+				// Subject Controller
+			case "/allSubject":
+				allSubject(request, response);
+			case "/insertSubject":
+				insertSubject(request, response);
+				break;
+			case "/updateSubject":
+				updateSubject(request, response);
+			case "/deleteSubject":
+				deleteSubject(request, response);
+			case "/selectSubject":
+				selectSubject(request, response);
 			default:
 				System.out.println("home");
 
@@ -46,27 +62,55 @@ public class Controller extends HttpServlet {
 			throw new ServletException(ex);
 		}
 	}
-	private void selectStudent(HttpServletRequest request, HttpServletResponse response) {
+
+	private void selectSubject(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		StudentService stuService=new StudentServiceImpl();
-		stuService.listSelectedStudent(21);
 		
 	}
-	private void allStudents(HttpServletRequest request, HttpServletResponse response) {
+
+	private void deleteSubject(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		StudentService stuService=new StudentServiceImpl();
+	}
+
+	private void updateSubject(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	private void insertSubject(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void allSubject(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void selectStudent(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		StudentService stuService = new StudentServiceImpl();
+		Student student = new Student();
+		student.setStuId(Integer.parseInt(request.getParameter("id")));
+		stuService.listSelectedStudent(student.getStuId());
+
+	}
+
+	private void allStudents(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+
+		StudentService stuService = new StudentServiceImpl();
+
 		stuService.listAllStudent();
-		
-		
+
 	}
 
 	private void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		StudentService stuService=new StudentServiceImpl();
-		Student st=new Student();
-		
+		StudentService stuService = new StudentServiceImpl();
+		Student st = new Student();
+
 		st.setStuId(10);
 		stuService.deleteStudent(st);
 		response.sendRedirect("home");
@@ -97,16 +141,18 @@ public class Controller extends HttpServlet {
 		st.setAdStree2("");
 		st.setAdCity("");
 		st.setClID(3);
+		st.setStuGender("male");
 		stuService.insertStudent(st);
 		response.sendRedirect("home");
 
 	}
-	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
