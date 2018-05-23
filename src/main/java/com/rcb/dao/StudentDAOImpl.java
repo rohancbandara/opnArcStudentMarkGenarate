@@ -28,13 +28,14 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 	@Override
 	public List<Student> listAllStudent() {
 		// TODO Auto-generated method stub
-		List<Student> listStudent=new ArrayList<>();
+		
+		List<Student> listStudent = new ArrayList<>();
 		try {
-			Student stu=new Student();
-			String  sql="SELET * FROM tblStudent";
-			ResultSet rs=getData(sql);
-			while(rs.next()) {
-				
+
+			String sql = "SELECT * FROM tblStudent";
+			ResultSet rs = getData(sql);
+			while (rs.next()) {
+				Student stu = new Student();
 				stu.setStuId(rs.getInt("stuId"));
 				stu.setStuName(rs.getString("stuName"));
 				stu.setAdNo(rs.getString("adNo"));
@@ -42,15 +43,23 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 				stu.setAdStree2(rs.getString("adStreet2"));
 				stu.setAdCity(rs.getString("adCity"));
 				stu.setClID(rs.getInt("clId"));
-				
+
 				listStudent.add(stu);
-				
+
 			}
+			//unit testing
+			ArrayList<Student> viewStudents = (ArrayList<Student>) listStudent;
+			for (int i = 0; i < viewStudents.size(); i++) {
+				System.out.println(viewStudents.get(i).getStuId());
+				System.out.println(viewStudents.get(i).getStuName());
+				System.out.println("okkk");
+			}
+			return listStudent;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
-		return listStudent;
+
+		return null;
 	}
 
 	@Override
@@ -74,7 +83,8 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 		try {
 			String sql = "UPDATE tblStudent set stuName='" + student.getStuName() + "',adNo='" + student.getAdNo()
 					+ "',adStreet1='" + student.getAdStree1() + "',adStreet2='" + student.getAdStree2() + "',adCity='"
-					+ student.getAdCity() + "',clId='" + student.getClID() + "' WHERE stuId='" + student.getStuId() + "'";
+					+ student.getAdCity() + "',clId='" + student.getClID() + "' WHERE stuId='" + student.getStuId()
+					+ "'";
 			putData(sql);
 			return true;
 		} catch (Exception e) {

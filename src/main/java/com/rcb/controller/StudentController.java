@@ -50,9 +50,11 @@ public class StudentController extends HttpServlet {
 
 	private void allStudents(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
 		StudentService stuService=new StudentServiceImpl();
 		
-		List<Student> listStudent=stuService.listAllStudent();
+		stuService.listAllStudent();
+		
 		
 	}
 
@@ -61,7 +63,7 @@ public class StudentController extends HttpServlet {
 		StudentService stuService=new StudentServiceImpl();
 		Student st=new Student();
 		
-		st.setStuId(3);
+		st.setStuId(10);
 		stuService.deleteStudent(st);
 		response.sendRedirect("home");
 	}

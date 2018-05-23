@@ -5,36 +5,36 @@ import com.rcb.dao.StudentDAO;
 import com.rcb.dao.StudentDAOImpl;
 import com.rcb.model.Student;
 
-public class StudentServiceImpl implements StudentService{
-	
-private StudentDAO studentDAO=new StudentDAOImpl();
-Student student=new Student();
+public class StudentServiceImpl implements StudentService {
+
+	private StudentDAO studentDAO = new StudentDAOImpl();
+	Student student = new Student();
+
 	@Override
 	public boolean insertStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.insertStudent(createStudent(student));
+		studentDAO.insertStudent(createNewStudent(student));
 		return false;
 	}
-	
-	
+
 	@Override
 	public List<Student> listAllStudent() {
 		// TODO Auto-generated method stub
-		studentDAO.listAllStudent();
-		return null;
+
+		return studentDAO.listAllStudent();
 	}
 
 	@Override
 	public boolean deleteStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.deleteStudent(createStudent(student));
+		studentDAO.deleteStudent(createNewStudent(student));
 		return false;
 	}
 
 	@Override
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.updateStudent(createStudent(student)); 
+		studentDAO.updateStudent(createNewStudent(student));
 		System.out.println("updated!!!!!!");
 		return false;
 	}
@@ -44,8 +44,8 @@ Student student=new Student();
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	private Student createStudent(Student stu) {
+
+	private Student createNewStudent(Student stu) {
 		student.setStuId(stu.getStuId());
 		student.setStuName(stu.getStuName());
 		student.setAdNo(stu.getAdNo());
