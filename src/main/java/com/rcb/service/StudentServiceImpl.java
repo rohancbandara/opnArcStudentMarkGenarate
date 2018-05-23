@@ -56,4 +56,10 @@ public class StudentServiceImpl implements StudentService {
 		return student;
 	}
 
+	@Override
+	public List<Student> listSelectedStudent(int id) {
+		// TODO Auto-generated method stub
+		return studentDAO.listSelectedStudent(id);
+	}
+
 }

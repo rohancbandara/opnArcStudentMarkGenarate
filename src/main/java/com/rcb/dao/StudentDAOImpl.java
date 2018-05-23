@@ -47,7 +47,7 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 				listStudent.add(stu);
 
 			}
-			//unit testing
+			//Testing output
 			ArrayList<Student> viewStudents = (ArrayList<Student>) listStudent;
 			for (int i = 0; i < viewStudents.size(); i++) {
 				System.out.println(viewStudents.get(i).getStuId());
@@ -97,6 +97,42 @@ public class StudentDAOImpl extends DbConnection implements StudentDAO {
 	@Override
 	public Student getStudent(int id) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> listSelectedStudent(int id) {
+		// TODO Auto-generated method stub
+		List<Student> selectedStudent=new ArrayList<>();
+		try {
+			String sql="SELECT * FROM tblStudent WHERE stuId='" + id + "'";
+			ResultSet rs=getData(sql);
+			while(rs.next()) {
+				Student stu=new Student();
+				stu.setStuId(rs.getInt("stuId"));
+				stu.setStuName(rs.getString("stuName"));
+				stu.setAdNo(rs.getString("adNo"));
+				stu.setAdStree1(rs.getString("adStreet1"));
+				stu.setAdStree2(rs.getString("adStreet2"));
+				stu.setAdCity(rs.getString("adCity"));
+				stu.setClID(rs.getInt("clId"));
+				
+				selectedStudent.add(stu);
+				
+			}
+			//Testing output
+			ArrayList<Student> lastSelectedStudent=(ArrayList<Student>) selectedStudent;
+			for (int i = 0; i < lastSelectedStudent.size(); i++) {
+				System.out.println(lastSelectedStudent.get(i).getStuId());
+				System.out.println(lastSelectedStudent.get(i).getStuName());
+			}
+			return selectedStudent;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

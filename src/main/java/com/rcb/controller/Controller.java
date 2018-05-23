@@ -1,31 +1,28 @@
 package com.rcb.controller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Logger;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.rcb.model.Student;
 import com.rcb.service.StudentService;
 import com.rcb.service.StudentServiceImpl;
 
 /**
- * Servlet implementation class StudentController
+ * Servlet implementation class Controller
  */
-@WebServlet("/StudentController")
-public class StudentController extends HttpServlet {
+@WebServlet("/Controller")
+public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String action = request.getServletPath();
 		System.out.println(action);
 		try {
@@ -39,6 +36,8 @@ public class StudentController extends HttpServlet {
 				updateStudent(request, response);
 			case "/deleteStudent":
 				deleteStudent(request,response);
+			case "/selectStudent":
+				selectStudent(request,response);
 			default:
 				System.out.println("home");
 
@@ -47,7 +46,12 @@ public class StudentController extends HttpServlet {
 			throw new ServletException(ex);
 		}
 	}
-
+	private void selectStudent(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		StudentService stuService=new StudentServiceImpl();
+		stuService.listSelectedStudent(21);
+		
+	}
 	private void allStudents(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
@@ -97,13 +101,12 @@ public class StudentController extends HttpServlet {
 		response.sendRedirect("home");
 
 	}
+	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

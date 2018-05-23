@@ -14,4 +14,6 @@ public interface StudentService {
 	public boolean updateStudent(Student student);
 
 	public Student getStudent(int id);
+
+	public List<Student> listSelectedStudent(int id);
 }
