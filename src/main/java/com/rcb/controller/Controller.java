@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.rcb.model.Student;
+import com.rcb.model.Subject;
 import com.rcb.service.StudentService;
 import com.rcb.service.StudentServiceImpl;
+import com.rcb.service.SubjectService;
+import com.rcb.service.SubjectServiceImpl;
 
 /**
  * Servlet implementation class Controller
@@ -29,7 +32,7 @@ public class Controller extends HttpServlet {
 		System.out.println(action);
 		try {
 			switch (action) {
-			// Student Control
+			// Student Controllers
 			case "/allStudents":
 				allStudents(request, response);
 			case "/insertStudent":
@@ -42,8 +45,8 @@ public class Controller extends HttpServlet {
 			case "/selectStudent":
 				selectStudent(request, response);
 
-				// Subject Controller
-			case "/allSubject":
+				// Subject Controllers
+			case "/allSubjects":
 				allSubject(request, response);
 			case "/insertSubject":
 				insertSubject(request, response);
@@ -65,7 +68,8 @@ public class Controller extends HttpServlet {
 
 	private void selectSubject(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		SubjectService subService=new SubjectServiceImpl();
+		subService.listSelectedSubject(1);
 	}
 
 	private void deleteSubject(HttpServletRequest request, HttpServletResponse response) {
@@ -80,11 +84,18 @@ public class Controller extends HttpServlet {
 
 	private void insertSubject(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		Subject subject=new Subject();
+		subject.setSubName("maths");
+		SubjectService subService=new SubjectServiceImpl();
+		subService.insertSubject(subject);
 		
 	}
 
 	private void allSubject(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		System.out.println("control ok");
+		SubjectService subService=new SubjectServiceImpl();
+		subService.listAllSubject();
 		
 	}
 
@@ -135,7 +146,7 @@ public class Controller extends HttpServlet {
 		StudentService stuService = new StudentServiceImpl();
 		Student st = new Student();
 
-		st.setStuName("amesh");
+		st.setStuName("bb");
 		st.setAdNo("");
 		st.setAdStree1("");
 		st.setAdStree2("");

@@ -13,8 +13,8 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public boolean insertStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.insertStudent(createNewStudent(student));
-		return false;
+		return	studentDAO.insertStudent(createNewStudent(student));
+
 	}
 
 	@Override
@@ -27,16 +27,16 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public boolean deleteStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.deleteStudent(createNewStudent(student));
-		return false;
+		
+		return studentDAO.deleteStudent(createNewStudent(student));
 	}
 
 	@Override
 	public boolean updateStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentDAO.updateStudent(createNewStudent(student));
+		
 		System.out.println("updated!!!!!!");
-		return false;
+		return studentDAO.updateStudent(createNewStudent(student));
 	}
 
 	@Override
