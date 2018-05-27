@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.rcb.model.Student;
 
-public interface StudentDAO {
+public interface StudentDAO  {
 	public boolean insertStudent(Student student);
 
 	public List<Student> listAllStudent();

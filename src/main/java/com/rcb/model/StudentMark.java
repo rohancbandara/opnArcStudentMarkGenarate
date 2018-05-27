@@ -1,6 +1,6 @@
 package com.rcb.model;
 
-public class SubjectMark {
+public class StudentMark {
 private int stmId;
 private String date;
 private double stmMark;
