@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.rcb.model.Student;
+import com.rcb.model.StudentMark;
 import com.rcb.model.Subject;
+import com.rcb.model.SubjectMark;
+import com.rcb.service.StudentMarkService;
+import com.rcb.service.StudentMarkServiceImpl;
 import com.rcb.service.StudentService;
 import com.rcb.service.StudentServiceImpl;
 import com.rcb.service.SubjectService;
@@ -109,7 +113,22 @@ public class Controller extends HttpServlet {
 
 	private void insertStudentMark(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-
+	StudentMark studentMark=new StudentMark();
+	StudentMarkService stuMarkService = new StudentMarkServiceImpl();
+	studentMark.setDate("2018/05/28");
+	studentMark.setStudentId(2);
+	studentMark.setSubId1(1);
+	studentMark.setSubMark1(35);
+	studentMark.setSubId2(2);
+	studentMark.setSubMark2(35);
+	studentMark.setSubId3(3);
+	studentMark.setSubMark3(65);
+	studentMark.setSubId4(4);
+	studentMark.setSubMark4(35);
+	studentMark.setSubId5(5);
+	studentMark.setSubMark5(85);
+	
+	stuMarkService.insertStudentMark(studentMark);
 	}
 
 	private void allStudentsMark(HttpServletRequest request, HttpServletResponse response) {

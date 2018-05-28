@@ -1,9 +1,6 @@
 package com.rcb.model;
 
-public class StudentMark {
-
-private String date;
-private int studentId;
+public class SubjectMark {
 private int subId1;
 private double subMark1;
 private int subId2;
@@ -74,20 +71,6 @@ public double getSubMark5() {
 public void setSubMark5(double subMark5) {
 	this.subMark5 = subMark5;
 }
-
-public String getDate() {
-	return date;
-}
-public void setDate(String date) {
-	this.date = date;
-}
-public int getStudentId() {
-	return studentId;
-}
-public void setStudentId(int studentId) {
-	this.studentId = studentId;
-}
-
 
 
 }
