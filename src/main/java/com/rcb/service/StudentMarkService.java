@@ -2,6 +2,7 @@ package com.rcb.service;
 
 import java.util.List;
 
+import com.rcb.model.Student;
 import com.rcb.model.StudentMark;
 
 public interface StudentMarkService {
@@ -16,4 +17,6 @@ public interface StudentMarkService {
 	public StudentMark getStudent(int id);
 
 	public List<StudentMark> listSelectedStudentMark(int id);
+	
+	public boolean getClassTop(Student student);
 }

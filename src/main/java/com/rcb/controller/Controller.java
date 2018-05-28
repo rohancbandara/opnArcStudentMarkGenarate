@@ -71,6 +71,9 @@ public class Controller extends HttpServlet {
 				break;
 
 			// Student Marks Controllers
+			case "/classTop":
+				classTop(request,response);
+				break;
 			case "/allStudentsMark":
 				allStudentsMark(request, response);
 				break;
@@ -94,6 +97,17 @@ public class Controller extends HttpServlet {
 		} catch (Exception ex) {
 			throw new ServletException(ex);
 		}
+	}
+
+	private void classTop(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		Student student=new Student();
+		StudentMarkService studentMarkService=new StudentMarkServiceImpl();
+		student.setClID(2);
+		
+		studentMarkService.getClassTop(student);
+		
+		
 	}
 
 	private void selectStudentMark(HttpServletRequest request, HttpServletResponse response) {
@@ -122,9 +136,9 @@ public class Controller extends HttpServlet {
 	studentMark.setSubId2(2);
 	studentMark.setSubMark2(35);
 	studentMark.setSubId3(3);
-	studentMark.setSubMark3(65);
+	studentMark.setSubMark3(69);
 	studentMark.setSubId4(4);
-	studentMark.setSubMark4(35);
+	studentMark.setSubMark4(88);
 	studentMark.setSubId5(5);
 	studentMark.setSubMark5(85);
 	
@@ -216,7 +230,7 @@ public class Controller extends HttpServlet {
 		StudentService stuService = new StudentServiceImpl();
 		Student st = new Student();
 
-		st.setStuName("bb");
+		st.setStuName("CC");
 		st.setAdNo("");
 		st.setAdStree1("");
 		st.setAdStree2("");

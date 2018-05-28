@@ -9,7 +9,7 @@ import com.mysql.jdbc.Statement;
 
 public class DbConnection {
 
-	static String url = "jdbc:mysql://localhost:3307/opn_stu";
+	static String url = "jdbc:mysql://localhost:3307/opn_student";
 
 	public static Connection con() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");

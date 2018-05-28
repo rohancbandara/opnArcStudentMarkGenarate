@@ -10,7 +10,17 @@ public class Student {
 	private String adCity;
 	private int clID;
 	private String stuGender;
+	private double avgMark;
 	
+	
+
+	public double getAvgMark() {
+		return avgMark;
+	}
+
+	public void setAvgMark(double avgMark) {
+		this.avgMark = avgMark;
+	}
 
 	public String getStuGender() {
 		return stuGender;

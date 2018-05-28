@@ -14,6 +14,14 @@ private int subId4;
 private double subMark4;
 private int subId5;
 private double subMark5;
+private int clId;
+
+public int getClId() {
+	return clId;
+}
+public void setClId(int clId) {
+	this.clId = clId;
+}
 public int getSubId1() {
 	return subId1;
 }

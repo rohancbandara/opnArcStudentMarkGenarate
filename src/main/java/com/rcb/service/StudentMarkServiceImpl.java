@@ -4,17 +4,18 @@ import java.util.List;
 
 import com.rcb.dao.StudentMarkDAO;
 import com.rcb.dao.StudentMarkDAOImpl;
-
+import com.rcb.model.Student;
 import com.rcb.model.StudentMark;
 
 public class StudentMarkServiceImpl implements StudentMarkService {
-	private StudentMarkDAO studentDAO = new StudentMarkDAOImpl();
+	private StudentMarkDAO studentMarkDAO = new StudentMarkDAOImpl();
 	StudentMark studentMark = new StudentMark();
+	Student student=new Student();
 
 	@Override
 	public boolean insertStudentMark(StudentMark studentMark) {
 		// TODO Auto-generated method stub
-		return studentDAO.insertStudentMark(createStudentMark(studentMark));
+		return studentMarkDAO.insertStudentMark(createStudentMark(studentMark));
 	}
 
 	@Override
@@ -48,6 +49,7 @@ public class StudentMarkServiceImpl implements StudentMarkService {
 	}
 
 	public StudentMark createStudentMark(StudentMark stumark) {
+		studentMark.setClId(stumark.getClId());
 		studentMark.setDate(stumark.getDate());
 		studentMark.setStudentId(stumark.getStudentId());
 		studentMark.setSubId1(stumark.getSubId1());
@@ -63,5 +65,17 @@ public class StudentMarkServiceImpl implements StudentMarkService {
 
 		return studentMark;
 	}
+	public Student createStudent(Student stu) {
+		student.setClID(stu.getClID());
+		return stu;
+	}
+
+	@Override
+	public boolean getClassTop(Student student) {
+		// TODO Auto-generated method stub
+		studentMarkDAO.getClassTop(createStudent(student));
+		return false;
+	}
+
 
 }
